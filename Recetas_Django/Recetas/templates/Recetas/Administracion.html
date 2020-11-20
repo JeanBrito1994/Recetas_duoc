@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>El Gourmet Chileno</title>
+	<link rel="icon" type="image/png" href="../Imagenes/El_Gourtmet_Chileno.png"/>
+	<link rel="stylesheet" type="text/css" href="../Estilos/Estilo_Administracion.css">
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&display=swap" rel="stylesheet">  
+</head>
+	<body>
+		<header>
+			<div class="contenedor-imagen-menu">
+				
+				<img class="logotipo" src="../Imagenes/El_Gourtmet_Chileno.png">
+			</div>
+			<nav class="navegacion">
+				<ul class="menu">
+					<li class="img0"><img src="../Imagenes/Iconos/Home.png"><a href="../index.html">Inicio</a></li>
+                    <li class="img1"><img src="../Imagenes/Iconos/User.png"><a href="../Login/Login.html">Login</a></li>
+                    <li class="img2"><img src="../Imagenes/Iconos/Food.png"><a href="./Recetas.html">Recetas</a>
+                        <ul class="submenu">
+                            <li><a href="./Entradas.html">Entradas</a></li>
+                            <li><a href="./Fondo.html">Fondo</a></li>
+                            <li><a href="./Postres.html">Postres</a></li>
+                        </ul>
+                    
+                    </li>
+                    <li class="img3"><img src="../Imagenes/Iconos/Receta_Admin.png"><a href="./Administracion.html">Administracion</a></li>
+                    <li class="img4"><img src="../Imagenes/Iconos/About.png"><a href="./Acerca de.html">Acerca de</a></li>
+                </ul>
+            </nav>
+            <div class="banner">
+			<img src="../Imagenes/Banner_Madera.png">
+		</div>
+		<h1>Adminstracion de Recetas</h1>
+		<br>	
+		</header>
+		<main>
+			<div class="contenedor_pestañas">
+				<ul class="pestañas">
+					<li><a href="#agregar">Agregar Receta</a></li>
+					<li><a href="#modificar">Modificar Receta</a></li>
+					<li><a href="#">Eliminar Receta</a></li>
+				</ul>
+			</div>
+			<div class="formulario" id="agregar">
+				<div class="banner2">
+					<h2>Libro de Cocina</h2>
+				</div>
+				<div class="panel">
+					<label class="tipoplato">Tipo de Plato:</label>
+					<select class="combobox" name="Tipo de platos" id="platos">
+						<option class="option1" value="Entradas">Entrada</option>
+						<option class="option2" value="Fondos">Fondo</option>
+						<option class="option3" value="Postres">Postre</option>
+					</select>
+					<form>
+						<label class="ingredientes" for="ingredients">Ingredientes:</label>
+						<textarea  class="textareaingredientes" name="ingredients" rows="27" cols="38" placeholder="Ej: 2 tazas de harina."></textarea>
+					</form>
+				</div>
+				<div class="panel2">
+					<form>
+						<label class="nombrereceta" for="namerecipe">Nombre de la receta:</label><input type="text" name="nombrereceta" placeholder="Ej: Leche Asada">
+						<label class="buscararchivo" for="uploadfile">Subir Imagen:</label>
+						<input class="subirimagen" type="file" name="Subir Imagen">
+						<img class="visualizador" src="../Imagenes/Entradas/champiñones rellenos.jpg">
+						<label class="preparacion" for="preparation">Preparación:</label>
+						<textarea name="pasos" class="pasos" rows="20" cols="60" placeholder="Ej: paso 1: pre calentar el sartén."></textarea>
+						<input type="submit" name="Agregarreceta" form="agregar" value="Guardar Receta">
+					</form>
+				</div>
+			</div>
+			<div class="fomrulario2" id="modificar">
+				<div class="banner3">
+					<h2>Libro de Cocina</h2>
+				</div>
+			</div>
+		</main>
+		
+	</body>
+</html>

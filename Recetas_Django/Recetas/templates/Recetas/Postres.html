@@ -1,0 +1,95 @@
+{%load static%}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>El Gourmet Chileno</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static '/Recetas/Estilos/Estilo_Postres.css' %}">
+        <link rel="icon" type="image/png" href="{% static '/Recetas/Imagenes/El_Gourtmet_Chileno.png' %}"/>
+    </head>
+    <body>
+        <div class="contenedor-imagen-menu">
+         
+			<img class="logotipo" src="{% static '/Recetas/Imagenes/El_Gourtmet_Chileno.png' %}">
+        </div>
+            <nav class="navegacion">
+                <ul class="menu">
+                    <li class="img0"><img src="{% static '/Recetas/Imagenes/Iconos/Home.png' %}"><a href="{% url 'home'%}">Inicio</a></li>
+                    <li class="img1"><img src="{% static '/Recetas/Imagenes/Iconos/User.png' %}"><a href="{% url 'login'%}">Login</a></li>
+                    <li class="img2"><img src="{% static '/Recetas/Imagenes/Iconos/Food.png' %}"><a href="{% url 'recetas'%}">Recetas</a>
+                        <ul class="submenu">
+                            <li><a href="{% url 'entradas'%}">Entradas</a></li>
+                            <li><a href="{% url 'fondo'%}">Fondo</a></li>
+                            <li><a href="{% url 'postres'%}">Postres</a></li>
+                        </ul>
+                    
+                    </li>
+                    <li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="">Administracion</a></li>
+                    <li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
+                </ul>
+            </nav>
+
+        <br>
+        <div class="banner">
+            <img src="{% static '/Recetas/Imagenes/Banner_Madera.png' %}">
+        </div>
+        <h1>¡Conoce nuestras recetas!</h1>
+        <br>        
+            <div class="galeria">
+                <div>
+                    <div class="contenedor-imagenes">
+                        <div class="imagen">
+                            <img src="{% static '/Recetas/Imagenes/Postres/Brazo de Reina.jpg' %}">
+                            <div class="overlay">
+                                <a href="">Brazo de Reina</a>
+                            </div>
+                        </div>     
+                        <div class="imagen">
+                            <img src="{% static '/Recetas/Imagenes/Postres/Empolvados.jpeg' %}">
+                            <div class="overlay">
+                                <a href="">Empolvados</a>
+                            </div>
+                        </div>   
+                        <div class="imagen">
+                            <img src="{% static '/Recetas/Imagenes/Postres/Leche Asada.jpg' %}">
+                            <div class="overlay">
+                                <a href="">Leche Asada</a>
+                            </div>
+                        </div>   
+                        <div class="imagen">
+                            <img src="{% static '/Recetas/Imagenes/Postres/Leche nevada.jpg' %}">
+                            <div class="overlay">
+                                <a href="">Leche Nevada</a>
+                            </div>
+                        </div>   
+                        <div class="imagen">
+                            <img src="{% static '/Recetas/Imagenes/Postres/Mote con Huesillo.jpg' %}">
+                            <div class="overlay">
+                                <a href="">Mote con Huesillo</a>
+                            </div>
+                        </div>   
+                        <div class="imagen">
+                            <img src="{% static '/Recetas/Imagenes/Postres/Sopaipillas Pasadas.jpg' %}">
+                            <div class="overlay">
+                                <a href="">Sopaipillas Pasadas</a>
+                            </div>
+                        </div>   
+                    </div>
+                </div>                                 
+            </div> 
+    </body>
+    <footer>
+        <div class="Imagen-Articulo1">
+            <img src="{% static '/Recetas/Imagenes/Logo definitivo.png' %}">
+        </div>
+        <article class="acticulo-footer">
+            <p>El Gourmet Chileno es un Blog informativo, que entrega variadas recetas de nuestro querido país.<br>
+                Aquí podras informarte y comentar nuestras recetas, tambien nos puedes enviar un correo electronico contadonos tus experiencias con alguna recetas que hayas probado en algun lugar de chile y la cual quieras compartir.<br>Las cuales seran publicadas en nuestro blog con tu nombre y lugar visitado.
+                Estamos orientado al buen gusto en la cocina y a la entrega de informacion de nuestros mejores platos.
+            </p>
+            
+        </article>
+    </footer>	
+</html>
