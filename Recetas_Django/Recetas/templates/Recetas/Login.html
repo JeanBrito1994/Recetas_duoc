@@ -42,12 +42,19 @@
     <div class="login-box">
         <img class="avatar" src="{% static '/Recetas/Imagenes/Iconos/Login.png' %}">
         <h2>Iniciar Sesión</h2>
-        <form>
+
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        
+        <form method="POST">
+            {% csrf_token %}
             <label >Usuario</label>
-            <input type="text" placeholder="usuario@elgourmetchileno.cl" id="usuario">
+            <input type="text" placeholder="usuario@elgourmetchileno.cl" id="usuario" name ="username">
 
             <label >Contraseña</label>
-            <input type="password" placeholder="Contraseña" id="contraseña">
+            <input type="password" placeholder="Contraseña" id="contraseña" name="password">
 
 
             <button class="boton" type="submit">
