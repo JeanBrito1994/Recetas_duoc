@@ -42,24 +42,20 @@
     <div class="login-box">
         <img class="avatar" src="{% static '/Recetas/Imagenes/Iconos/Login.png' %}"><br>
         <h2>Crear Cuenta</h2>
-        <form action="registrar.py" onsubmit="return validar();">
-                <label for="rut">RUT</label>
-                <input type="text" placeholder="12345678" id="rut" >
-                
-                <label for="nombre">Nombre</label>
-                <input type="text" placeholder="Juan" id="nombre" >
-                
-                 <label for="apellido">Apellido</label>
-                <input type="text" placeholder="Barros" id="apellido" >
-                
-                 <label for="correo">Correo</label>
-                <input type="text" placeholder="usuario@recetaschilenas.cl" id="correo" >
-                
-                <label for="password">Contraseña</label>
-                <input type="password" placeholder="Contraseña" id="password" >
-                
 
-                <input type="submit" value="Enviar" >
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+			<table>
+				{{ form.as_table }}
+			</table>
+            <input class="limpiar" type="reset" value="Limpiar">
+			<input class="limpiar" type="submit" value="Guardar">
+
+                
                 
         </form>
        

@@ -27,7 +27,7 @@
                         </ul>
                     
                     </li>
-                    <li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="">Administracion</a></li>
+                    <li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
                     <li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
                 </ul>
             </nav>
@@ -47,7 +47,7 @@
             <p style="color:red;">{{ error }}</p>
         {% endif %}
 
-        
+
         <form method="POST">
             {% csrf_token %}
             <label >Usuario</label>
@@ -62,7 +62,7 @@
             </button>
         
             <button class="boton" type="submit">
-                <a href="{% url 'formulario'%}">Registrate</a>
+                <a href="{% url 'formulario' %}">Registrate</a>
             </button>
             
             

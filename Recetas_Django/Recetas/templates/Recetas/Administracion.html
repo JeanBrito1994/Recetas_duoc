@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<title>El Gourmet Chileno</title>
 	<link rel="icon" type="image/png" href="../Imagenes/El_Gourtmet_Chileno.png"/>
-	<link rel="stylesheet" type="text/css" href="../Estilos/Estilo_Administracion.css">
+	<link rel="stylesheet" type="text/css" href="{% static '/Recetas/Estilos/Estilo_Administracion.css' %}">
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&display=swap" rel="stylesheet">  
@@ -18,22 +19,22 @@
 			</div>
 			<nav class="navegacion">
 				<ul class="menu">
-					<li class="img0"><img src="../Imagenes/Iconos/Home.png"><a href="../index.html">Inicio</a></li>
-                    <li class="img1"><img src="../Imagenes/Iconos/User.png"><a href="../Login/Login.html">Login</a></li>
-                    <li class="img2"><img src="../Imagenes/Iconos/Food.png"><a href="./Recetas.html">Recetas</a>
+                    <li class="img0"><img src="{% static '/Recetas/Imagenes/Iconos/Home.png' %}"><a href="{% url 'home'%}">Inicio</a></li>
+                    <li class="img1"><img src="{% static '/Recetas/Imagenes/Iconos/User.png' %}"><a href="{% url 'login'%}">Login</a></li>
+                    <li class="img2"><img src="{% static '/Recetas/Imagenes/Iconos/Food.png' %}"><a href="{% url 'recetas'%}">Recetas</a>
                         <ul class="submenu">
-                            <li><a href="./Entradas.html">Entradas</a></li>
-                            <li><a href="./Fondo.html">Fondo</a></li>
-                            <li><a href="./Postres.html">Postres</a></li>
+                            <li><a href="{% url 'entradas'%}">Entradas</a></li>
+                            <li><a href="{% url 'fondo'%}">Fondo</a></li>
+                            <li><a href="{% url 'postres'%}">Postres</a></li>
                         </ul>
                     
                     </li>
-                    <li class="img3"><img src="../Imagenes/Iconos/Receta_Admin.png"><a href="./Administracion.html">Administracion</a></li>
-                    <li class="img4"><img src="../Imagenes/Iconos/About.png"><a href="./Acerca de.html">Acerca de</a></li>
+                    <li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
+                    <li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
                 </ul>
             </nav>
             <div class="banner">
-			<img src="../Imagenes/Banner_Madera.png">
+				<img src="{% static '/Recetas/Imagenes/Banner_Madera.png' %}">
 		</div>
 		<h1>Adminstracion de Recetas</h1>
 		<br>	

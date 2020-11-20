@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from Recetas.models import usuarios
+from Recetas.forms import UserCreationForm, registro
 
 def home(request):
     return render(request,'Recetas/index.html')
@@ -7,10 +10,10 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(request, username=username, passwoord = password)
+        user = authenticate(request, username=username, password = password)
         if user:
             login(request, user)
-            return redirect ('administracion')
+            return redirect ('home')
         else:
             return render(request,'Recetas/Login.html', {'error':'Credenciales invalidas'})
     return render(request,'Recetas/Login.html')
@@ -31,7 +34,17 @@ def acerca(request):
     return render(request,'Recetas/Acerca.html')
 
 def formulario(request):
-    return render(request,'Recetas/formulario.html')
+    data = {
+        'form': registro()
+    }
+    if request.method == 'POST':
+        formulario = registro(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+        else:
+            return render(request,'Recetas/formulario.html', {'error':'No se puedo ingresar el usuario'})
+
+    return render(request,'Recetas/formulario.html', data)
 
 def administracion(request):
     return render(request,'Recetas/Administracion.html')
