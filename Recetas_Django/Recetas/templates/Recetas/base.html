@@ -10,13 +10,20 @@
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&display=swap" rel="stylesheet">  
-
 </head>
+
 
 	<header>
 		<div class="contenedor-imagen-menu">
 			
 			<img class="logotipo" src="{% static '/Recetas/Imagenes/El_Gourtmet_Chileno.png' %}">
+			{% if user.is_authenticated %}
+			<div class="credenciales">
+				<a href="#">Usuario: {{ user.username }}</a>
+				<br>
+				<a href="{% url 'logout' %}">Cerrar sesion</a>
+			</div>
+		{% endif %}
 		</div>
 			<nav class="navegacion">
                 <ul class="menu">
@@ -32,23 +39,16 @@
 					</li>
 					{% if user.is_authenticated %}
 					<li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
+					
 					{% endif %}
 					<li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
 					
 
-					{% if user.is_authenticated %}
-						<li id="nombre_usuario" >
-							<a href="#">Usuario: {{ user.username }}</a>
-						</li>
-						<li>
-							<a href="{% url 'logout' %}">Cerrar sesion</a>
-						</li>
-					{% endif %}
+					
                 </ul>
-            </nav>
-
+			</nav>
+			
 		<br>
-		
 	</header>
 
 <div id="contenido">

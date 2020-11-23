@@ -8,3 +8,8 @@ class registro(UserCreationForm):
     class Meta:
         model = User
         fields = ['first_name','username','password1','password2']
+
+        widgets = {
+                'first_name' :forms.TextInput(attrs={'placeholder': 'Juan Esteban'}),
+                'username' :forms.TextInput(attrs={'placeholder': 'jpbrito@gmail.com'})
+        }

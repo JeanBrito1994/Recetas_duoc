@@ -16,6 +16,7 @@ def login_view(request):
             login(request, user)
             return redirect ('home')
         else:
+            
             return render(request,'Recetas/Login.html', {'error':'Credenciales invalidas'})
     return render(request,'Recetas/Login.html')
 

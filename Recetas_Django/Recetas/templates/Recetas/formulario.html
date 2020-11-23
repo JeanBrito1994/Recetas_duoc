@@ -20,17 +20,30 @@
 
         {% if error %}
             <p style="color:red;">{{ error }}</p>
-        {% endif %}
+            
+        
 
         <form action="" method="POST">
             {% csrf_token %}
 			<table>
-				{{ form.as_table }}
-			</table>
-            <input class="limpiar" type="reset" value="Limpiar">
-			<input class="limpiar" type="submit" value="Guardar">
+			{{ form.as_table }}
+            </table>
 
-                
+
+            <button class="limpiar" type="submit">
+                <a href="{% url 'formulario' %}">Volver</a>
+            </button>
+
+
+        {% else %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+                {{ form.as_table }}
+                </table>
+                <input class="limpiar" type="reset" value="Limpiar">
+                <input class="limpiar" type="submit" value="Guardar">
+        {% endif %}        
                 
         </form>
        
