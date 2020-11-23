@@ -1,13 +1,13 @@
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from Recetas import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home,name='home'),
-    path('login/', views.login_view,name='login'),
+    path('accounts/login/', views.login_view,name='login'),
     path('recetas/', views.recetas,name='recetas'),
     path('entradas/', views.entradas,name='entradas'),
     path('fondo/', views.fondo,name='fondo'),
@@ -15,5 +15,7 @@ urlpatterns = [
     path('acerca/', views.acerca,name='acerca'),
     path('formulario/', views.formulario,name='formulario'),
     path('administracion/', views.administracion,name='administracion'),
+    path('accounts/', include('django.contrib.auth.urls')),
+
 
 ]

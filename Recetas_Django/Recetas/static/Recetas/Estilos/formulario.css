@@ -261,6 +261,17 @@ h2
 	color: #000000;
 }
 
+.login-box input[type="reset"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+	margin-top: 6%;
+	padding: auto;
+	border-radius: 20px;
+	color: #000000;
+}
+
 .login-box a
 {
 	text-decoration: none;

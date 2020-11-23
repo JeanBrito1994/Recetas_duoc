@@ -27,8 +27,19 @@
                         </ul>
                     
                     </li>
-                    <li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
+                    
+                    {% if user.is_authenticated %}
+					<li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
+					
+                    {% endif %}
+                    
                     <li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
+               
+					{% if user.is_authenticated %}
+                    <li id="nombre_usuario" >
+                        <a href="#">Usuario: {{ user.username }}</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav>
         <br>

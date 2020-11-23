@@ -29,9 +29,17 @@
                         </ul>
                     
                     </li>
-                    <li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
-                    <li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
-                </ul>
+					{% if user.is_authenticated %}
+					<li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
+					{% endif %}
+					<li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
+			   
+					{% if user.is_authenticated %}
+					<li id="nombre_usuario" >
+						<a href="#">Usuario: {{ user.username }}</a>
+					</li>
+				{% endif %}
+				</ul>
             </nav>
             <div class="banner">
 				<img src="{% static '/Recetas/Imagenes/Banner_Madera.png' %}">
@@ -45,6 +53,7 @@
 					<li><a href="#agregar">Agregar Receta</a></li>
 					<li><a href="#modificar">Modificar Receta</a></li>
 					<li><a href="#">Eliminar Receta</a></li>
+
 				</ul>
 			</div>
 			<div class="formulario" id="agregar">
