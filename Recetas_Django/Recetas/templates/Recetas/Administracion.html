@@ -1,52 +1,17 @@
+{% extends "Recetas/base.html" %}
 {%load static%}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<title>El Gourmet Chileno</title>
-	<link rel="icon" type="image/png" href="../Imagenes/El_Gourtmet_Chileno.png"/>
+
+{% block contenido %}
+
 	<link rel="stylesheet" type="text/css" href="{% static '/Recetas/Estilos/Estilo_Administracion.css' %}">
-	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&display=swap" rel="stylesheet">  
-</head>
-	<body>
-		<header>
-			<div class="contenedor-imagen-menu">
-				
-				<img class="logotipo" src="../Imagenes/El_Gourtmet_Chileno.png">
-			</div>
-			<nav class="navegacion">
-				<ul class="menu">
-                    <li class="img0"><img src="{% static '/Recetas/Imagenes/Iconos/Home.png' %}"><a href="{% url 'home'%}">Inicio</a></li>
-                    <li class="img1"><img src="{% static '/Recetas/Imagenes/Iconos/User.png' %}"><a href="{% url 'login'%}">Login</a></li>
-                    <li class="img2"><img src="{% static '/Recetas/Imagenes/Iconos/Food.png' %}"><a href="{% url 'recetas'%}">Recetas</a>
-                        <ul class="submenu">
-                            <li><a href="{% url 'entradas'%}">Entradas</a></li>
-                            <li><a href="{% url 'fondo'%}">Fondo</a></li>
-                            <li><a href="{% url 'postres'%}">Postres</a></li>
-                        </ul>
-                    
-                    </li>
-					{% if user.is_authenticated %}
-					<li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
-					{% endif %}
-					<li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
-			   
-					{% if user.is_authenticated %}
-					<li id="nombre_usuario" >
-						<a href="#">Usuario: {{ user.username }}</a>
-					</li>
-				{% endif %}
-				</ul>
-            </nav>
+
             <div class="banner">
 				<img src="{% static '/Recetas/Imagenes/Banner_Madera.png' %}">
-		</div>
+			</div>
 		<h1>Adminstracion de Recetas</h1>
 		<br>	
-		</header>
+
+	
 		<main>
 			<div class="contenedor_pestañas">
 				<ul class="pestañas">
@@ -56,40 +21,9 @@
 
 				</ul>
 			</div>
-			<div class="formulario" id="agregar">
-				<div class="banner2">
-					<h2>Libro de Cocina</h2>
-				</div>
-				<div class="panel">
-					<label class="tipoplato">Tipo de Plato:</label>
-					<select class="combobox" name="Tipo de platos" id="platos">
-						<option class="option1" value="Entradas">Entrada</option>
-						<option class="option2" value="Fondos">Fondo</option>
-						<option class="option3" value="Postres">Postre</option>
-					</select>
-					<form>
-						<label class="ingredientes" for="ingredients">Ingredientes:</label>
-						<textarea  class="textareaingredientes" name="ingredients" rows="27" cols="38" placeholder="Ej: 2 tazas de harina."></textarea>
-					</form>
-				</div>
-				<div class="panel2">
-					<form>
-						<label class="nombrereceta" for="namerecipe">Nombre de la receta:</label><input type="text" name="nombrereceta" placeholder="Ej: Leche Asada">
-						<label class="buscararchivo" for="uploadfile">Subir Imagen:</label>
-						<input class="subirimagen" type="file" name="Subir Imagen">
-						<img class="visualizador" src="../Imagenes/Entradas/champiñones rellenos.jpg">
-						<label class="preparacion" for="preparation">Preparación:</label>
-						<textarea name="pasos" class="pasos" rows="20" cols="60" placeholder="Ej: paso 1: pre calentar el sartén."></textarea>
-						<input type="submit" name="Agregarreceta" form="agregar" value="Guardar Receta">
-					</form>
-				</div>
-			</div>
-			<div class="fomrulario2" id="modificar">
-				<div class="banner3">
-					<h2>Libro de Cocina</h2>
-				</div>
-			</div>
+		
+		
+			
 		</main>
 		
-	</body>
-</html>
+		{% endblock %}

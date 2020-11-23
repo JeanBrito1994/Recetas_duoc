@@ -1,55 +1,11 @@
+{% extends "Recetas/base.html" %}
 {%load static%}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>El Gourmet Chileno</title>
-	<link rel="icon" type="image/png" href="{% static '/Recetas/Imagenes/El_Gourtmet_Chileno.png' %}"/>
-	<link rel="stylesheet" type="text/css" href="{% static '/Recetas/Estilos/Estilo_Login.css' %}">
-</head>
 
-    <body>
-    <header>
-        <div class="contenedor-imagen-menu">
+{% block contenido %}
+	<link rel="stylesheet" type="text/css" href="{% static '/Recetas/Estilos/Estilo_Login.css' %}"> 
         
-			<img class="logotipo" src="{% static '/Recetas/Imagenes/El_Gourtmet_Chileno.png' %}">
-        </div>
-        <nav class="navegacion">
-                <ul class="menu">
-                    <li class="img0"><img src="{% static '/Recetas/Imagenes/Iconos/Home.png' %}"><a href="{% url 'home'%}">Inicio</a></li>
-                    <li class="img1"><img src="{% static '/Recetas/Imagenes/Iconos/User.png' %}"><a href="{% url 'login'%}">Login</a></li>
-                    <li class="img2"><img src="{% static '/Recetas/Imagenes/Iconos/Food.png' %}"><a href="{% url 'recetas'%}">Recetas</a>
-                        <ul class="submenu">
-                            <li><a href="{% url 'entradas'%}">Entradas</a></li>
-                            <li><a href="{% url 'fondo'%}">Fondo</a></li>
-                            <li><a href="{% url 'postres'%}">Postres</a></li>
-                        </ul>
-                    
-                    </li>
-                    
-                    {% if user.is_authenticated %}
-					<li class="img3"><img src="{% static '/Recetas/Imagenes/Iconos/Receta_Admin.png' %}"><a href="{% url 'administracion'%}">Administracion</a></li>
-					
-                    {% endif %}
-                    
-                    <li class="img4"><img src="{% static '/Recetas/Imagenes/Iconos/About.png' %}"><a href="{% url 'acerca'%}">Acerca de</a></li>
-               
-					{% if user.is_authenticated %}
-                    <li id="nombre_usuario" >
-                        <a href="#">Usuario: {{ user.username }}</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        <br>
-        <div class="banner">
-            <img src="{% static '/Recetas/Imagenes/Banner_Madera.png' %}">
-        </div>
-        <h1>Registrate y disfruta<br> de <br>nuestras recetas</h1>
-        <br>    
-        
-    </header>
+<body>
+
     <div class="login-box">
         <img class="avatar" src="{% static '/Recetas/Imagenes/Iconos/Login.png' %}">
         <h2>Iniciar Sesión</h2>
@@ -88,16 +44,4 @@
     </div>
     <script src="../JS/login.js"></script>
 </body>
-<footer>
-    <div class="Imagen-Articulo1">
-        <img src="{% static '/Recetas/Imagenes/Logo definitivo.png' %}">
-    </div>
-    <article class="acticulo-footer">
-        <p>El Gourmet Chileno es un Blog informativo, que entrega variadas recetas de nuestro querido país.<br>
-            Aquí podras informarte y comentar nuestras recetas, tambien nos puedes enviar un correo electronico contadonos tus experiencias con alguna recetas que hayas probado en algun lugar de chile y la cual quieras compartir.<br>Las cuales seran publicadas en nuestro blog con tu nombre y lugar visitado.
-            Estamos orientado al buen gusto en la cocina y a la entrega de informacion de nuestros mejores platos.
-        </p>
-        
-    </article>
-</footer>	
-</html>
+{% endblock %}

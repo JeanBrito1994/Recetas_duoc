@@ -55,3 +55,4 @@ def formulario(request):
 @login_required
 def administracion(request):
     return render(request,'Recetas/Administracion.html')
+
