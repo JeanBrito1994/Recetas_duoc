@@ -13,3 +13,9 @@ class registro(UserCreationForm):
                 'first_name' :forms.TextInput(attrs={'placeholder': 'Juan Esteban'}),
                 'username' :forms.TextInput(attrs={'placeholder': 'jpbrito@gmail.com'})
         }
+
+class Buscarid(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = ['username']

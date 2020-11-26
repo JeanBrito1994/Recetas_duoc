@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from Recetas.models import usuarios
-from Recetas.forms import UserCreationForm, registro
+from Recetas.models import AuthUser
+from Recetas.forms import UserCreationForm, registro, Buscarid
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 def home(request):
     return render(request,'Recetas/index.html')
@@ -28,6 +29,9 @@ def entradas(request):
 
 def fondo(request):
     return render(request,'Recetas/Fondo.html')
+
+
+
 
 def postres(request):
     return render(request,'Recetas/Postres.html')
@@ -57,3 +61,21 @@ def formulario(request):
 def administracion(request):
     return render(request,'Recetas/Administracion.html')
 
+@login_required
+def eliminar_usuario(request, id):
+    usuario = AuthUser.objects.get(username=id)
+    usuario.delete()
+    return redirect(to="listado")
+
+@login_required
+def filtrar(request):
+    busqueda = request.GET.get('buscar')
+    usuario = AuthUser.objects.all()  
+    data = {
+        'user':usuario
+    }
+    if busqueda:
+        usuario = AuthUser.objects.filter(
+            Q(username__icontains = busqueda)
+        ).distinct()
+    return render(request, 'Recetas/Listado_usuario.html',{'usuario': usuario})

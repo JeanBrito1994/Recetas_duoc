@@ -8,22 +8,24 @@
             <div class="banner">
 				<img src="{% static '/Recetas/Imagenes/Banner_Madera.png' %}">
 			</div>
-		<h1>Adminstracion de Recetas</h1>
+		<h1>Adminstración de Recetas</h1>
 		<br>	
 
 	
 		<main>
 			<div class="contenedor_pestañas">
 				<ul class="pestañas">
+					<li><a href="{% url 'listado' %}">Listar Usuarios</a></li>
 					<li><a href="#agregar">Agregar Receta</a></li>
 					<li><a href="#modificar">Modificar Receta</a></li>
+					
 					<li><a href="#">Eliminar Receta</a></li>
-
 				</ul>
 			</div>
 		
+
 		
 			
 		</main>
-		
+
 		{% endblock %}

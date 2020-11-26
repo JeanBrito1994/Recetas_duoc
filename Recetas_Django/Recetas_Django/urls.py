@@ -14,8 +14,9 @@ urlpatterns = [
     path('postres/', views.postres,name='postres'),
     path('acerca/', views.acerca,name='acerca'),
     path('formulario/', views.formulario,name='formulario'),
+    path('listado/', views.filtrar, name='listado'),
     path('administracion/', views.administracion,name='administracion'),
     path('accounts/', include('django.contrib.auth.urls')),
-
+    path('eliminar_usuario/<id>/', views.eliminar_usuario, name='Eliminar_usuario'),
 
 ]
