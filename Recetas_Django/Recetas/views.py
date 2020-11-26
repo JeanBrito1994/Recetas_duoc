@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from Recetas.models import AuthUser
-from Recetas.forms import UserCreationForm, registro, Buscarid
+from Recetas.forms import UserCreationForm, registro, Buscarid, modificar
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.contrib import messages
 
 def home(request):
     return render(request,'Recetas/index.html')
@@ -47,13 +48,17 @@ def formulario(request):
         formulario = registro(request.POST)
         if formulario.is_valid():
             formulario.save()
+            
             username = formulario.cleaned_data['username']
             password = formulario.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
+            
             return redirect ('home')
+            messages.success(request, "Registrado Correctamente")
         else:
-            return render(request,'Recetas/formulario.html', {'error':'No se puedo ingresar el usuario'})
+            messages.error(request, "Intente nuevamente")
+            return redirect ('formulario')
 
     return render(request,'Recetas/formulario.html', data)
 
@@ -65,6 +70,7 @@ def administracion(request):
 def eliminar_usuario(request, id):
     usuario = AuthUser.objects.get(username=id)
     usuario.delete()
+    messages.success(request, "Eliminado correctamente")
     return redirect(to="listado")
 
 @login_required
@@ -79,3 +85,18 @@ def filtrar(request):
             Q(username__icontains = busqueda)
         ).distinct()
     return render(request, 'Recetas/Listado_usuario.html',{'usuario': usuario})
+
+@login_required
+def modificar_usuario(request, id):
+    usuario = AuthUser.objects.get(username=id)
+    data = {
+        'form':modificar(instance=usuario)
+    }
+    if request.method == 'POST':
+        formulario = modificar(data=request.POST, instance=usuario)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Modificado correctamente")
+            data['form'] = formulario
+            return redirect(to="listado")
+    return render(request,'Recetas/modificar_usuario.html', data)

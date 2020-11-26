@@ -18,11 +18,11 @@
         <img class="avatar" src="{% static '/Recetas/Imagenes/Iconos/Login.png' %}"><br>
         <h2>Crear Cuenta</h2>
 
-        {% if error %}
-            <p style="color:red;">{{ error }}</p>
-            
-        
 
+
+        {% if error %}
+                        
+    
         <form action="" method="POST">
             {% csrf_token %}
 			<table>
@@ -43,6 +43,9 @@
                 </table>
                 <input class="limpiar" type="reset" value="Limpiar">
                 <input class="limpiar" type="submit" value="Guardar">
+
+                        
+
         {% endif %}        
                 
         </form>
@@ -53,4 +56,5 @@
     </div>
     <script src="../JS/app.js"></script>
 </body>
+
 {% endblock %}

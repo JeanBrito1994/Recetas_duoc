@@ -7,7 +7,7 @@ class registro(UserCreationForm):
     
     class Meta:
         model = User
-        fields = ['first_name','username','password1','password2']
+        fields = ['username','first_name','last_name','email','password1','password2']
 
         widgets = {
                 'first_name' :forms.TextInput(attrs={'placeholder': 'Juan Esteban'}),
@@ -19,3 +19,9 @@ class Buscarid(UserCreationForm):
     class Meta:
         model = User
         fields = ['username']
+
+
+class modificar(ModelForm):
+    class Meta:
+        model = User
+        fields = ['username','first_name','last_name','email']

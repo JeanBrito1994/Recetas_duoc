@@ -44,7 +44,7 @@ class AuthUser(models.Model):
     username = models.CharField(unique=True, max_length=150, blank=True, null=True)
     first_name = models.CharField(max_length=150, blank=True, null=True)
     last_name = models.CharField(max_length=150, blank=True, null=True)
-    email = models.CharField(max_length=254, blank=True, null=True)
+    email = models.CharField(max_length=150, blank=True, null=True)
     is_staff = models.BooleanField()
     is_active = models.BooleanField()
     date_joined = models.DateTimeField()
@@ -130,3 +130,13 @@ class Usuario(models.Model):
     class Meta:
         managed = False
         db_table = 'usuario'
+
+class recetas(models.Model):
+    username = models.CharField(max_length=150, blank=True, null=True)
+    image = models.ImageField()
+    instrucciones = models.TextField()
+    ingredientes = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'recetas'

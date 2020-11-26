@@ -52,10 +52,31 @@
 	</header>
 
 <div id="contenido">
+
+	
+
 	{% block contenido %}
 
 	{% endblock %}
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+	{% if messages %}
+		{% for m in messages %}
+			<script>
+				Swal.fire({
+                    "icon": 'success',
+                    "text": "{{m}}"
+                    
+                    })
+			</script>
+		{% endfor %}
+	{% endif %}
+
+
+
 
 <footer>
     <div class="Imagen-Articulo1">

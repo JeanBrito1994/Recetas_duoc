@@ -17,6 +17,7 @@ urlpatterns = [
     path('listado/', views.filtrar, name='listado'),
     path('administracion/', views.administracion,name='administracion'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('modificar/<id>/', views.modificar_usuario, name='modificar'),
     path('eliminar_usuario/<id>/', views.eliminar_usuario, name='Eliminar_usuario'),
 
 ]

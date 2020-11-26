@@ -237,6 +237,7 @@ h2
 	margin: auto;
 	padding: auto;
 
+
 }
 
 .login-box input[type="text"],
@@ -341,7 +342,8 @@ footer article{
 }
 
 span {
-	color: rgb(208, 240, 26);
+	visibility: hidden;
+
 }
 
 button[type="submit"]
@@ -361,4 +363,8 @@ button[type="submit"]
 button a
 {
 	color: #000000;
+}
+
+input#id_email{
+	background: #000000;
 }
