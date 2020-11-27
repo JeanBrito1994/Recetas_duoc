@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from Recetas.models import AuthUser
-from Recetas.forms import UserCreationForm, registro, Buscarid, modificar
+from Recetas.models import AuthUser, Recetas
+from Recetas.forms import UserCreationForm, registro, Buscarid, modificar, ingresar
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
@@ -76,15 +76,15 @@ def eliminar_usuario(request, id):
 @login_required
 def filtrar(request):
     busqueda = request.GET.get('buscar')
-    usuario = AuthUser.objects.all()  
+    lista = AuthUser.objects.all()  
     data = {
-        'user':usuario
+        'user':lista
     }
     if busqueda:
         usuario = AuthUser.objects.filter(
             Q(username__icontains = busqueda)
         ).distinct()
-    return render(request, 'Recetas/Listado_usuario.html',{'usuario': usuario})
+    return render(request, 'Recetas/Listado_usuario.html',{'usuario': lista})
 
 @login_required
 def modificar_usuario(request, id):
@@ -100,3 +100,33 @@ def modificar_usuario(request, id):
             data['form'] = formulario
             return redirect(to="listado")
     return render(request,'Recetas/modificar_usuario.html', data)
+
+
+def filtra_recetas(request):
+    lista = Recetas.objects.all()  
+    data = {
+        'user':lista
+    }
+    return render(request, "Recetas/Listado_recetas.html",{'receta': lista})
+
+@login_required
+def eliminar_receta(request, id):
+    receta = Recetas.objects.get(codigo=id)
+    receta.delete()
+    messages.success(request, "Eliminado correctamente")
+    return redirect(to="Listado_r")
+
+def ingresar_receta(request):
+    data = {
+        'form': ingresar()
+    }
+    if request.method == 'POST':
+        formulario = ingresar(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            
+            return redirect ('Listado_r')
+            messages.success(request, "Registrado Correctamente")
+      
+    return render(request,'Recetas/Ingresar_receta.html', data)
+

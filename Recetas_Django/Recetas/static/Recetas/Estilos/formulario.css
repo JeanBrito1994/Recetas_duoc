@@ -368,3 +368,7 @@ button a
 input#id_email{
 	background: #000000;
 }
+
+tbody{
+	color: white;
+}

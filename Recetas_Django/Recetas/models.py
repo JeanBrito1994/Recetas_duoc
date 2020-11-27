@@ -44,7 +44,7 @@ class AuthUser(models.Model):
     username = models.CharField(unique=True, max_length=150, blank=True, null=True)
     first_name = models.CharField(max_length=150, blank=True, null=True)
     last_name = models.CharField(max_length=150, blank=True, null=True)
-    email = models.CharField(max_length=150, blank=True, null=True)
+    email = models.CharField(max_length=254, blank=True, null=True)
     is_staff = models.BooleanField()
     is_active = models.BooleanField()
     date_joined = models.DateTimeField()
@@ -118,6 +118,19 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
+class Recetas(models.Model):
+    codigo = models.FloatField(primary_key=True)
+    nombre_receta = models.CharField(max_length=20, blank=True, null=True)
+    usuario = models.CharField(max_length=20, blank=True, null=True)
+    instrucciones = models.TextField(blank=True, null=True)
+    imagen = models.FileField(upload_to="archivos/", null=True, blank=True)
+    ingredientes = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'recetas'
+
+
 class Usuario(models.Model):
     rut = models.IntegerField()
     rut_dv = models.CharField(max_length=1, blank=True, null=True)
@@ -125,18 +138,7 @@ class Usuario(models.Model):
     apellido = models.CharField(max_length=20, blank=True, null=True)
     correo = models.CharField(max_length=60, blank=True, null=True)
     contrasena = models.CharField(max_length=20, blank=True, null=True)
-    direccion = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'usuario'
-
-class recetas(models.Model):
-    username = models.CharField(max_length=150, blank=True, null=True)
-    image = models.ImageField()
-    instrucciones = models.TextField()
-    ingredientes = models.TextField()
-
-    class Meta:
-        managed = False
-        db_table = 'recetas'

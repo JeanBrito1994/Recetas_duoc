@@ -15,9 +15,12 @@ urlpatterns = [
     path('acerca/', views.acerca,name='acerca'),
     path('formulario/', views.formulario,name='formulario'),
     path('listado/', views.filtrar, name='listado'),
+    path('listado_r/', views.filtra_recetas, name='Listado_r'),
     path('administracion/', views.administracion,name='administracion'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('modificar/<id>/', views.modificar_usuario, name='modificar'),
     path('eliminar_usuario/<id>/', views.eliminar_usuario, name='Eliminar_usuario'),
+    path('eliminar_receta/<id>/', views.eliminar_receta, name='Eliminar_receta'),
+    path('ingresar_receta/', views.ingresar_receta, name='ingresar_receta'),
 
 ]
