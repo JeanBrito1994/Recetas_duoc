@@ -130,13 +130,3 @@ class Usuario(models.Model):
     class Meta:
         managed = False
         db_table = 'usuario'
-
-class recetas(models.Model):
-    username = models.CharField(max_length=150, blank=True, null=True)
-    image = models.ImageField()
-    instrucciones = models.TextField()
-    ingredientes = models.TextField()
-
-    class Meta:
-        managed = False
-        db_table = 'recetas'
